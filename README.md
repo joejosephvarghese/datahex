@@ -22,3 +22,7 @@
 # 1. Clone repo:
 ```bash
 git clone https://github.com/joejosephvarghese/datahex.git
+
+
+```bash
+npm install
