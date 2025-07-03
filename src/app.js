@@ -1,9 +1,10 @@
 const express = require("express");
 const helmet = require("helmet");
-const { helmetConfig } = require("../src/config/config");
+const { helmetConfig, environment } = require("../src/config/config");
 const routes = require("./routes/v1");
 const connectDB = require("./models/connection");
 const logger = require("./config/logger");
+const morgan = require("./config/morgan");
 const { StatusCodes } = require("http-status-codes");
 const ApiError = require("./utils/apiError");
 const { errorConverter, errorHandler } = require("../src/middleware/error");
@@ -13,6 +14,11 @@ const app = express();
 app.use(helmet(helmetConfig));
 
 app.use(express.json());
+
+if (environment.node !== "test") {
+  app.use(morgan.successHandler);
+  app.use(morgan.errorHandler);
+}
 
 connectDB();
 

@@ -11,6 +11,11 @@ module.exports.jwtConfig={
 jwt:process.env.JWT_SECRET
 }
 
+module.exports.environment = {
+  node: process.env.NODE_ENV || 'development',
+};
+
+
 // Helmet security settings
 module.exports.helmetConfig = {
   contentSecurityPolicy: {
