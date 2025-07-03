@@ -24,7 +24,7 @@
 ###  .env
 
 ```bash
-PORT=5000
+PORT=3000
 MONGO_URI=mongodb://localhost:27017/datahex
 JWT_SECRET=your_jwt_secret_key
 CLOUDINARY_CLOUD_NAME=your_cloud_name
