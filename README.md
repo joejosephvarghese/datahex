@@ -21,7 +21,7 @@
 
 ## 🚀 Quick Start
 
-### .env
+###  .env
 
 ```bash
 PORT=5000
