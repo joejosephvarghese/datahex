@@ -20,6 +20,17 @@ const userSchema = mongoose.Schema(
       type: String,
       trim: true,
     },
+    password: {
+  type: String,
+  trim: true,
+  minlength: 8,
+  select: false,
+  validate(value) {
+    if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+      throw new Error('Password must contain at least one letter and one number');
+    }
+  },
+},
   },
   {
     timestamps: true,

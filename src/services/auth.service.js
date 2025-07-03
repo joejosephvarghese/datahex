@@ -26,6 +26,12 @@ const registerUser = async ({ email, username, password, role }) => {
   return userObj;
 };
 
+const findByEmail = async (email) => {
+  return await User.findOne({ email }).select('+password');
+};
+
+
 module.exports = {
   registerUser,
+  findByEmail
 };
