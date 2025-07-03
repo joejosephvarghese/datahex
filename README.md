@@ -24,4 +24,14 @@
 git clone https://github.com/joejosephvarghese/datahex.git
 
 
+npm install
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/datahex
+JWT_SECRET=your_jwt_secret_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+npm run dev
+
+
 
