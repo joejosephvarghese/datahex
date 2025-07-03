@@ -1,37 +1,27 @@
 # 🚀 DataHex - Blogging Platform
 
 ## 📜 Description
-**DataHex** is a modern blogging platform built with **Node.js**, **Express**, and **MongoDB** featuring secure authentication and image uploads.
+**DataHex** is a modern blogging platform built with **Node.js**, **Express**, and **MongoDB**, featuring secure authentication and image uploads.
 
 ## 🌟 Features
+
 ### Core Functionality
-# 📝 Blog Management (CRUD operations)
-# 🔐 JWT Authentication
-# 🌄 Cloudinary Image Uploads
-# 📖 Paginated API Responses
+- 📝 Blog Management (CRUD operations)
+- 🔐 JWT Authentication
+- 🌄 Cloudinary Image Uploads
+- 📖 Paginated API Responses
 
 ## 🛠 Tech Stack
-# 🟢 Node.js
-# 🟣 Express
-# 🟠 MongoDB
-# ☁️ Cloudinary
-# 🔄 Multer
-# 🔒 JWT
+- 🟢 Node.js
+- 🟣 Express
+- 🟠 MongoDB
+- ☁️ Cloudinary
+- 🔄 Multer
+- 🔒 JWT
 
 ## 🚀 Quick Start
-# 1. Clone repo:
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/joejosephvarghese/datahex.git
-
-
-npm install
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/datahex
-JWT_SECRET=your_jwt_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-npm run dev
-
-
-
+cd datahex
