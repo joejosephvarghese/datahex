@@ -10,7 +10,9 @@
 - 🔐 JWT Authentication
 - 🌄 Cloudinary Image Uploads
 - 📖 Paginated API Responses
-
+- 📖 Search By Content of the Blog
+-  🔐 Apis are sequired with cors and helment
+- 
 ## 🛠 Tech Stack
 - 🟢 Node.js
 - 🟣 Express
