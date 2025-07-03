@@ -11,7 +11,7 @@
 - 🌄 Cloudinary Image Uploads
 - 📖 Paginated API Responses
 - 📖 Search By Content of the Blog
--  🔐 Apis are sequired with cors and helment
+-  🔐 Apis are sequired with cors and helmet
 - 
 ## 🛠 Tech Stack
 - 🟢 Node.js
