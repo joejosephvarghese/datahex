@@ -9,8 +9,8 @@ const createBlog = async (data) => {
 };
 
 // Get all blogs
-const getAllBlogs = async ({}, options) => {
-  return await Blog.paginate({}, options);
+const getAllBlogs = async (filter, options) => {
+  return await Blog.paginate(filter, options);
 };
 
 const getAllUserBlogs = async (filter, options) => {

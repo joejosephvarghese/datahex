@@ -28,7 +28,7 @@ const createBlog = catchAsync(async (req, res) => {
 
 // GET all blogs (paginated)
 const getAllBlogs = catchAsync(async (req, res) => {
-  const { page, limit, sortBy } = req.query;
+  const { page, limit, sortBy, title } = req.query;
 
   const options = {
     page: parseInt(page, 10),
@@ -36,7 +36,12 @@ const getAllBlogs = catchAsync(async (req, res) => {
     sortBy: sortBy || "-createdAt",
   };
 
-  const blogs = await blogServices.getAllBlogs({}, options);
+  const filter = {};
+  if (title) {
+    filter.title = { $regex: title, $options: "i" }; // correct place for search
+  }
+
+  const blogs = await blogServices.getAllBlogs(filter, options);
   res.status(StatusCodes.OK).json(blogs);
 });
 
