@@ -9,7 +9,7 @@ const defaultRoutes = [
     path: "/auth",
     route: authRoute,
   },
-   {
+  {
     path: "/media",
     route: blogRoute,
   },

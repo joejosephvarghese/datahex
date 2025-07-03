@@ -1,19 +1,21 @@
-const { StatusCodes, getReasonPhrase } = require('http-status-codes');
-const ApiError = require('../utils/apiError');
-const mongoose = require('mongoose');
+const { StatusCodes, getReasonPhrase } = require("http-status-codes");
+const ApiError = require("../utils/apiError");
+const mongoose = require("mongoose");
 
 const errorConverter = (err, req, res, next) => {
   let error = err;
 
   // Handle Mongoose Validation Error
   if (error instanceof mongoose.Error.ValidationError) {
-    const message = Object.values(error.errors).map((e) => e.message).join(', ');
+    const message = Object.values(error.errors)
+      .map((e) => e.message)
+      .join(", ");
     error = new ApiError(StatusCodes.BAD_REQUEST, message, false, err.stack);
   }
 
   // Handle Duplicate Key Error (E11000)
   else if (error.code && error.code === 11000) {
-    const fields = Object.keys(error.keyValue).join(', ');
+    const fields = Object.keys(error.keyValue).join(", ");
     const message = `Duplicate field(s): ${fields}`;
     error = new ApiError(StatusCodes.BAD_REQUEST, message, false, err.stack);
   }
@@ -37,7 +39,7 @@ const errorHandler = (err, req, res, next) => {
     message = getReasonPhrase(statusCode);
   }
 
-  if (process.env.NODE_ENV === 'production' && !err.isOperational) {
+  if (process.env.NODE_ENV === "production" && !err.isOperational) {
     message = getReasonPhrase(StatusCodes.INTERNAL_SERVER_ERROR);
   }
 
@@ -46,10 +48,10 @@ const errorHandler = (err, req, res, next) => {
   const response = {
     code: statusCode,
     message,
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
   };
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === "development") {
     console.error(err);
   }
 

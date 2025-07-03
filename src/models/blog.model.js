@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { toJSON, paginate } = require('./plugins');
 
 const blogSchema = new mongoose.Schema({
   title: {
@@ -20,6 +21,10 @@ const blogSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+
+blogSchema.plugin(toJSON);
+blogSchema.plugin(paginate);
 
 const Blog = mongoose.model("Blog", blogSchema);
 module.exports = Blog;

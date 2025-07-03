@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
@@ -14,29 +14,31 @@ const userSchema = mongoose.Schema(
     },
     role: {
       type: String,
-      default: 'user',
+      default: "user",
     },
     profilePic: {
       type: String,
       trim: true,
     },
     password: {
-  type: String,
-  trim: true,
-  minlength: 8,
-  select: false,
-  validate(value) {
-    if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
-      throw new Error('Password must contain at least one letter and one number');
-    }
-  },
-},
+      type: String,
+      trim: true,
+      minlength: 8,
+      select: false,
+      validate(value) {
+        if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+          throw new Error(
+            "Password must contain at least one letter and one number"
+          );
+        }
+      },
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
